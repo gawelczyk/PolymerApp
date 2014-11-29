@@ -7,6 +7,15 @@ body {
   margin: 50px auto;
 }
 
+core-toolbar {
+  background: #03a9f4;
+  color: white;
+}
+paper-tabs {
+  text-transform: uppercase;
+}
+
+
 /* Add your styles here! */
 
 @media (min-width: 481px) {
