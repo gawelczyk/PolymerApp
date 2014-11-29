@@ -29,6 +29,17 @@
   border-radius: 50%;
   margin: 10px;
 }
+
+core-icon-button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #636363;
+}
+:host([favorite]) core-icon-button {
+  color: #da4336;
+}
+
     /* Add your styles here: */
 
     </style>
@@ -37,6 +48,11 @@
   <content select="img"></content>
   <content select="h2"></content>
 </div>
+<core-icon-button
+  icon="favorite"
+  on-tap="{{favoriteTapped}}">
+</core-icon-button>
+
 <content></content>
 
     <!-- CARD CONTENTS GO HERE -->
@@ -44,6 +60,16 @@
   </template>
   <script>
   Polymer({
+     publish: {
+    favorite: {
+      value: false,
+      reflect: true
+    }
+  },
+  favoriteTapped: function(event, detail, sender) {
+    this.favorite = !this.favorite;
+    this.fire('favorite-tap');
+  }
     // define the element's JavaScript prototype here
   });
   </script>
